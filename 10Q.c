@@ -5,10 +5,12 @@ void freq(int ary[],int r){
         count=0;
         for(j=i+1;j<r;j++){
             if(ary[i]==ary[j]){
+                ary[j]=0;
                 count++;
             }
         }
-        printf("the frequency of %d is %d\n",ary[i],count);
+        if(ary[i]!=0)
+        printf("the frequency of %d is %d\n",ary[i],count+1);
     }
 }
 int main(){
