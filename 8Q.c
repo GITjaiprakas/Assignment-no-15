@@ -1,28 +1,23 @@
 #include<stdio.h>
-void unique(int r,int ary[]){
-    int j,i,count;
-    for(j=0;j<r;j++){
-        count=0;
-        for(i=0;i<r;i++){
-            if(ary[j]==ary[i]){
-                ++count;
-                if(count>1)
-                break;
+void count(int *);
+int main(){
+    int arr[10]={2,2,3,4,5,2,5,2,15,2};
+    count(arr);
+    return 0;
+}
+void count(int arr[]){
+    int i=0,count=0,j,unique[10]={1,1,1,1,1,1,1,1,1,1};
+    for(i=0;i<9;i++){
+        if(unique[i]==0){
+            continue;
+        }
+        for(j=i+1;j<10;j++){
+            if(arr[i]==arr[j]){
+                unique[i]=unique[j]=0;
             }
         }
-        if(count==1){
-            printf("%d ",ary[j]);
+        if(unique[i]==1){
+            printf("%d ",arr[i]);
         }
     }
-}
-int main(){
-    int r,ary[100],i;
-    printf("Enter the range of numbers : ");
-    scanf("%d",&r);
-    printf("Enter the numbers : ");
-    for(i=0;i<r;i++){
-        scanf("%d",&ary[i]);
-    }
-    unique(r,ary);
-    return 0;
 }
